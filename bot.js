@@ -7,28 +7,24 @@ var MarkovChain = require('markovchain').MarkovChain
   , quotes = new MarkovChain({ files: [ 'data/lebron_sample.txt', 'data/ulysses_sample.txt', 'data/lebron_sample2.txt', 'data/ulysses_sample2.txt']  })
 
 
-// function choice(list) {
-//     return list[Math.floor(Math.random() * list.length)];
-// }
-
-// function generateTweet() {
-//     var meat = ["beef", "turkey", "veggie", "tofu", "black-bean", "buffalo"];
-//     var cheese = ["swiss", "gouda", "cheddar", "monterey jack", "brie"];
-//     var bun = ["brioche", "sesame-seed", "whole wheat"];
-//     var toppings = ["lettuce", "red onion", "tomatoes"];
-//     var condiments = ["mustard", "ketchup", "mayo", "sriracha",
-//         "garlic aioli"];
-//     return "a " + choice(meat) + " burger with " + choice(cheese) + ", " +
-//         choice(toppings) + " and " + choice(condiments) + " on a " +
-//         choice(bun) + " bun";
-// }
-
 function generateTweet() {
   quotes
     .start('Heat') //
     .end(10)
     .process(function(err, s) {
       if (s.toString().length < 140){
+
+        //
+        // new Promise(function(resolve, reject) {
+        //
+        //   var res =   quotes
+        //       .start('Heat') //
+        //       .end(10)
+        //       .process(function(err, s) {
+        //         resolve(s)
+        // });
+
+
         main(s);
         // console.log(s)
         // return s;
