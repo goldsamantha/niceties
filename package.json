@@ -9,6 +9,7 @@
   "author": "Allison Parrish",
   "license": "CC0",
   "dependencies": {
+    "async": "^1.4.0",
     "node-twitter-api": "^1.6.0"
   }
 }
