@@ -50,30 +50,22 @@ function getTweetTwoCorpus(corpus1, corpus2, cb) {
         loc = result.search(last_word)
         var st = "";
         if (loc == 0){
-          // console.log("RESULT: ", result, "Length of last word: ", last_word.length);
-          st = s + " " +result.slice(last_word.length, result.length);
+          st = s + result.slice(last_word.length, result.length);
         }
         else {
           st = s+' '+result;
         }
-        // console.log(s+"\tSPACE\t"+result); // "Stuff worked!"
         if (st.length < 140){
           cb(st);
         }
       }, function(err) {
-        console.log(err); // Error: "It broke"
+        console.log(err);
       });
 
     });
 }
 
 function getTweetSingleCorpus(corpus, cb) {
-
-
-
-
-  var ul_str =  "His pace slackened. Here. Am I going to aunt Sara's or not? My consubstantial father's voice. Did you see anything of your artist brother Stephen lately? No? Sure he's not down in Strasburg terrace with his aunt Sally? Couldn't he fly a bit higher than that, eh? And and and and tell us, Stephen, how is uncle Si? O, weeping God, the things I married into! De boys up in de hayloft. The drunken little and his brother, the cornet player. Highly respectable gondoliers! And skeweyed Walter sirring his father, no less! Sir. Yes, sir. No, sir Jesus wept: and no wonder, by Christ!";
-  var ul_ls = ul_str.split(' ');
   corpus
     .start(getRandomWordFromList)
     .end(7)
@@ -90,19 +82,14 @@ function getRandomWordFromList(wordList) {
 }
 
 function getUseableWord(word_to_try, wordList) {
-  // console.log("TRYING: ", word_to_try);
   return function(wordList){
     var isInList = (word_to_try in wordList)
-    // console.log("Is in list?: ", isInList);
-    // console.log("LIST: ", wordList);
     if (isInList){
       return word_to_try;
     }
-    // else{
-      var tmpList = Object.keys(wordList);
-      var wrd = tmpList[Math.floor(Math.random()*tmpList.length)];
-      return wrd;
-    // }
+    var tmpList = Object.keys(wordList);
+    var wrd = tmpList[Math.floor(Math.random()*tmpList.length)];
+    return wrd;
 
 
   };
@@ -119,14 +106,34 @@ function getWord(word, text) {
 }
 
 
+/*
+BRITNEY
+*/
+getTweetSingleCorpus(singleCorpus, testMain);
+getTweetTwoCorpus(quotes1, quotes2, testMain);
+// getTweetTwoCorpus(quotes1, quotes2, pushTweet);
 
-// getTweetSingleCorpus(quotes2, testMain);
-// getTweetTwoCorpus(quotes1, quotes2, testMain);
+
+
+/*
+LETS GENERATE A QUOTE!!!!!!!!!!
+
+node generate_quote.js svCb78aiaEpyiLjP6gCwLEYhJ vKm5Ya7cE9L8xWM4fsvwGaBD3lG8VbOihIPWexBp5e8l7jX0Ov 3317700123-ViBUW0Np13rnpWdEcmWZXeJklyFiYHyL3vDmiEd iVSc720EwRjq4LDBxkw4mMZLjRZ2NXn02gU5HaBfGgjZw
+
+*/
+
+
+
+
+
+/*
+LEBRON JAMES JOYCE
+*/
 
 // getTweetSingleCorpus(joyce_and_lebron, testMain);
 // getTweetTwoCorpus(lebron, joyce, testMain);
 
-getTweetTwoCorpus(lebron, joyce, pushTweet);
+// getTweetTwoCorpus(lebron, joyce, pushTweet);
 
 
 
