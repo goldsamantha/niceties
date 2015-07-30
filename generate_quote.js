@@ -111,16 +111,11 @@ BRITNEY
 */
 getTweetSingleCorpus(singleCorpus, testMain);
 getTweetTwoCorpus(quotes1, quotes2, testMain);
+
 // getTweetTwoCorpus(quotes1, quotes2, pushTweet);
 
 
 
-/*
-LETS GENERATE A QUOTE!!!!!!!!!!
-
-node generate_quote.js svCb78aiaEpyiLjP6gCwLEYhJ vKm5Ya7cE9L8xWM4fsvwGaBD3lG8VbOihIPWexBp5e8l7jX0Ov 3317700123-ViBUW0Np13rnpWdEcmWZXeJklyFiYHyL3vDmiEd iVSc720EwRjq4LDBxkw4mMZLjRZ2NXn02gU5HaBfGgjZw
-
-*/
 
 
 
