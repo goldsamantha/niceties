@@ -9,7 +9,39 @@
       <img class= "logo" src= "images/HackerSchoolLogo.svg" />
       <h1>Niceties</h1>
     </div>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <!-- <h1><%= title %></h1> -->
+    <div class="person">
+      <p>Tom:</p>
+      <p> <%= title %></p>
+    </div>
+
+
+    <div class="person">
+      <p>Mary:</p>
+      <p> <%= title %></p>
+    </div>
+
+    <div id="people">
+      <ul>
+      </ul>
+
+    </div>
+
+
+
   </body>
+  <script type="text/javascript">
+  var peeps = ['tom','mary','sonali', 'dave','nick','rache', 'zach',]
+  var obj = document.getElementById('people');
+
+  for (var i=0; i<peeps.length; i++){
+    var li = document.createElement("li");
+    li.className = "person";
+    li.innerHTML = "<p>" + peeps[i] + "<%= title %>" +"</p>";
+    // li.appendChild(document.createTextNode(text));
+    obj.appendChild(li);
+  }
+
+
+  </script>
 </html>
