@@ -18,8 +18,10 @@ router.get('/:name', function(req, res, next) {
   if (_.contains(staff, req.params.name)) {
     generator.getTweetSingleCorpus('data/' + req.params.name + '.txt', function(salt) {
       // a salt is actually a nice tie
+      console.log(req.type)
+      console.log(req.headers)
       res.type('application/json');
-      res.send({ nicetie: salt });
+      res.send({ name: req.params.name, nicetie: salt });
     });
   } else {
     res.status(500);
