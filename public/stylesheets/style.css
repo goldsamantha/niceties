@@ -21,6 +21,9 @@ a {
   display: inline-block;
 }
 
+.aligntxt{
+  text-align: right;
+}
 
 ul{
   display: flex;
