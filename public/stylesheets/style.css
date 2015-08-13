@@ -20,3 +20,9 @@ a {
   font-size: 45px;
   display: inline-block;
 }
+
+li{
+  /*text-decoration: none;*/
+  list-style: none;
+
+}
