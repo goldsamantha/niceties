@@ -1,6 +1,6 @@
 // a twitter bot!
 
-var twitterAPI = require('node-twitter-api');
+// var twitterAPI = require('node-twitter-api');
 var util = require('util');
 var async = require('async');
 
@@ -129,22 +129,22 @@ function testMain(st) {
 }
 
 
-function pushTweet(s) {
-    var accessToken = process.argv[4];
-    var tokenSecret = process.argv[5];
-
-    var twitter = new twitterAPI({
-        consumerKey: process.argv[2],
-        consumerSecret: process.argv[3]});
-    console.log(s);
-    twitter.statuses("update",
-        {"status": s}, //generateTweet()},
-        accessToken,
-        tokenSecret,
-        function(error, data, response) {
-            if (error) {
-                console.log("something went wrong: " + util.inspect(error));
-            }
-        }
-    );
-}
+// function pushTweet(s) {
+//     var accessToken = process.argv[4];
+//     var tokenSecret = process.argv[5];
+//
+//     var twitter = new twitterAPI({
+//         consumerKey: process.argv[2],
+//         consumerSecret: process.argv[3]});
+//     console.log(s);
+//     twitter.statuses("update",
+//         {"status": s}, //generateTweet()},
+//         accessToken,
+//         tokenSecret,
+//         function(error, data, response) {
+//             if (error) {
+//                 console.log("something went wrong: " + util.inspect(error));
+//             }
+//         }
+//     );
+// }

@@ -26,4 +26,3 @@ rl.question("Your application key: ", function(appKey) {
         });
     });
 });
-

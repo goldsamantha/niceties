@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.logo{
+  max-width: 200px;
+
+}
+
+.header{
+  width: 100%;
+}
+
+.header h1{
+  font-size: 45px;
+  display: inline-block;
+}
