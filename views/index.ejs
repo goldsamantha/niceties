@@ -44,8 +44,11 @@
       var li = document.createElement("li");
       li.className = "person";
       // console.log(data.nicetie);
+      var img = document.createElement("img")
 
-      li.innerHTML = "<h2>" + data.name +"</h2><p>"+  data.nicetie +"</p>";
+      var img = "<img src='"+data.img+"' />"
+
+      li.innerHTML = img+"<h2>" + data.name+"</h2><p>"+  data.nicetie +"</p>";
 
       // console.log("Name: ", name);
       // console.log("peeps: ", peeps[i], "i: ", i);
