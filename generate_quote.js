@@ -9,7 +9,7 @@ var async = require('async');
 
 
 var MarkovChain = require('markovchain').MarkovChain
-  , rcFac = new MarkovChain({files: 'data/tom.txt'})
+
 
 
 function getTweetTwoCorpus(corpus1, corpus2, cb) {
@@ -95,9 +95,15 @@ function getWord(word, text) {
 
 
 
-getTweetSingleCorpus(rcFac, testMain)
 
 
+module.exports = {
+  getTweetSingleCorpus: function(file, callback) {
+    var rcFac = new MarkovChain({files: file})
+    getTweetSingleCorpus(rcFac, callback)
+
+  }
+}
 
 
 
