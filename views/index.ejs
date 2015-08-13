@@ -3,6 +3,8 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
   </head>
   <body>
     <div class="header">
@@ -10,16 +12,6 @@
       <h1>Niceties</h1>
     </div>
     <!-- <h1><%= title %></h1> -->
-    <div class="person">
-      <p>Tom:</p>
-      <p> <%= title %></p>
-    </div>
-
-
-    <div class="person">
-      <p>Mary:</p>
-      <p> <%= title %></p>
-    </div>
 
     <div id="people">
       <ul>
@@ -31,26 +23,46 @@
 
   </body>
   <script type="text/javascript">
-  var peeps = ['tom','mary','sonali', 'dave','nick','rache', 'zach',]
+  // var peeps = ['tom','mary','sonali', 'dave','nick','rachel', 'zach',]
+  var peeps = [ 'dave_albert',
+  'mary_rose_cook',
+  'nick_bergson_shilcock',
+  'rachel_vincent',
+  'sonali_sridhar',
+  'tom_ballinger',
+  'zach_allaun' ];
+
   var obj = document.getElementById('people');
 
   for (var i=0; i<peeps.length; i++){
-    var li = document.createElement("li");
-    li.className = "person";
-    li.innerHTML = "<p>" + peeps[i] + "<%= title %>" +"</p>";
-    // li.appendChild(document.createTextNode(text));
-    obj.appendChild(li);
-  }
 
-/*
-  $.ajax({
-    type: 'get',
-    url: '/v1beta/tom',
-    contentType: 'application/json'
-  }).then(function(data) {
-    console.log(data.nicetie);
-  })
-*/
+    $.ajax({
+      type: 'get',
+      url: '/v1beta/' +peeps[i],
+      contentType: 'application/json'
+    }).then(function(data) {
+      var li = document.createElement("li");
+      li.className = "person";
+      // console.log(data.nicetie);
+
+      li.innerHTML = "<p>" + data.name +"</p><p>"+  data.nicetie +"</p>";
+
+      // console.log("Name: ", name);
+      // console.log("peeps: ", peeps[i], "i: ", i);
+      obj.appendChild(li);
+
+    })
+  // }
+
+  // $.ajax({
+  //   type: 'get',
+  //   url: '/v1beta/' +peeps[i],
+  //   contentType: 'application/json'
+  // }).then(function(data) {
+  //   console.log(data.nicetie);
+  // })
+
+}
 
   </script>
 </html>
