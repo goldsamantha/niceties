@@ -19,6 +19,7 @@ var MarkovChain = require('markovchain').MarkovChain
   , quotes2 = new MarkovChain({ files:  'brit_data/full_shakespeare.txt'})
   , singleCorpus = new MarkovChain({ files:  ['brit_data/bspears_sample.txt','brit_data/full_shakespeare.txt']})
 
+  , rcFac = new MarkovChain({files: 'data/tom.txt'})
 
   , joyce = new MarkovChain({ files: jjoyce_text})
   , lebron = new MarkovChain({ files: lebron_text})
@@ -68,7 +69,7 @@ function getTweetTwoCorpus(corpus1, corpus2, cb) {
 function getTweetSingleCorpus(corpus, cb) {
   corpus
     .start(getRandomWordFromList)
-    .end(7)
+    .end(40)
     .process(function(err, s) {
       cb(s);
 
@@ -109,8 +110,11 @@ function getWord(word, text) {
 /*
 BRITNEY
 */
-getTweetSingleCorpus(singleCorpus, testMain);
-getTweetTwoCorpus(quotes1, quotes2, testMain);
+// getTweetSingleCorpus(singleCorpus, testMain);
+// getTweetTwoCorpus(quotes1, quotes2, testMain);
+
+
+getTweetSingleCorpus(rcFac, testMain)
 
 // getTweetTwoCorpus(quotes1, quotes2, pushTweet);
 
