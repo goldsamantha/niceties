@@ -7,23 +7,9 @@ var async = require('async');
 
 
 
-var jjoyce_text = ['data/jjoyce_artist_full.txt', 'data/jjoyce_ulysses_full.txt'];
-var lebron_text = [ 'data/lebron_sample.txt', 'data/lebron_sample2.txt'];
 
 var MarkovChain = require('markovchain').MarkovChain
-  // , quotes1 = new MarkovChain({ files: [ 'data/lebron_sample.txt', 'data/lebron_sample2.txt']  })
-  // , quotes2 = new MarkovChain({ files: [ 'data/ulysses_sample.txt', 'data/ulysses_sample2.txt']  })
-  // , quotes = new MarkovChain({ files: [ 'brit_data/bspears_sample.txt', 'brit_data/shakes_sample.txt']  })
-
-  , quotes1 = new MarkovChain({ files:  'brit_data/bspears_sample.txt' })
-  , quotes2 = new MarkovChain({ files:  'brit_data/full_shakespeare.txt'})
-  , singleCorpus = new MarkovChain({ files:  ['brit_data/bspears_sample.txt','brit_data/full_shakespeare.txt']})
-
   , rcFac = new MarkovChain({files: 'data/tom.txt'})
-
-  , joyce = new MarkovChain({ files: jjoyce_text})
-  , lebron = new MarkovChain({ files: lebron_text})
-  , joyce_and_lebron = new MarkovChain({ files: jjoyce_text.concat(lebron_text) });
 
 
 function getTweetTwoCorpus(corpus1, corpus2, cb) {
@@ -107,32 +93,14 @@ function getWord(word, text) {
 }
 
 
-/*
-BRITNEY
-*/
-// getTweetSingleCorpus(singleCorpus, testMain);
-// getTweetTwoCorpus(quotes1, quotes2, testMain);
 
 
 getTweetSingleCorpus(rcFac, testMain)
 
-// getTweetTwoCorpus(quotes1, quotes2, pushTweet);
 
 
 
 
-
-
-
-
-/*
-LEBRON JAMES JOYCE
-*/
-
-// getTweetSingleCorpus(joyce_and_lebron, testMain);
-// getTweetTwoCorpus(lebron, joyce, testMain);
-
-// getTweetTwoCorpus(lebron, joyce, pushTweet);
 
 
 
