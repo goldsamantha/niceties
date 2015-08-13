@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var generator = require('../generate_quote');
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+  generator.getTweetSingleCorpus('data/tom.txt', function(tweet) {
+    res.render('index', { title: tweet });
+  });
 });
 
 module.exports = router;

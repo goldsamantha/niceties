@@ -5,7 +5,10 @@ var generator = require('./generate_quote');
 var app = express();
 
 app.get('/tom', function (req, res) {
-  generator.getTweetSingleCorpus(rcFac, testMain)
+  console.log(generator.getTweetSingleCorpus)
+  generator.getTweetSingleCorpus('data/tom.txt', function(tweet) {
+    console.log('iamtweet', tweet);
+  });
 });
 
 app.get('/mary', function (req, res) {
