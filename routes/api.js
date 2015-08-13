@@ -38,9 +38,11 @@ function getStaff() {
   };
 }
 
+router.get('/staff', function(req, res, next) {
+  res.type('application/json');
+  res.send(getStaff());
+});
 
-
-/* GET home page. */
 router.get('/:name', function(req, res, next) {
   var staff = getStaff()
   if (_.contains(_.keys(staff), req.params.name)) {
