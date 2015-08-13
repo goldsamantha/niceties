@@ -11,6 +11,16 @@ function getStaff() {
   });
 }
 
+var names = {
+  dave_albert: 'Dave Albert',
+  mary_rose_cook: 'Mary Rose Cook',
+  nick_bergson_shilcock: 'Nick Bergson-Shilcock',
+  rachel_vincent: 'Rachel Vincent',
+  sonali_sridhar: 'Sonali Sridhar',
+  tom_ballinger: 'Tom Ballinger',
+  zach_allaun: 'Zach Allauan'
+};
+
 /* GET home page. */
 router.get('/:name', function(req, res, next) {
   var staff = getStaff()
@@ -20,8 +30,14 @@ router.get('/:name', function(req, res, next) {
       // a salt is actually a nice tie
       console.log(req.type)
       console.log(req.headers)
+      var data = {
+        name: names[req.params.name] || req.params.name,
+        nicetie: salt
+      };
+
+      // if (req.accepts('application/json')) {
       res.type('application/json');
-      res.send({ name: req.params.name, nicetie: salt });
+      res.send(data);
     });
   } else {
     res.status(500);
